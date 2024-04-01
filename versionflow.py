@@ -205,7 +205,7 @@ class Config(object):
                 "--contains", "tags/" + version
             ).splitlines()
             branches = [b.lstrip("*").strip() for b in branches]
-            if "master" not in branches:
+            if gf_wrapper.master_name() not in branches:
                 raise VersionTagOnWrongBranch()
             # Check if the version tags match what we expect
             if version != bv_wrapper.current_version:
